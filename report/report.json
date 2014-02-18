@@ -1,14 +1,16 @@
 {
 	"system": {
-		"node_name": "",
-		"ip_address": "",
+		"node_name": "node.name",
+		"ip_address": "192.168.0.1",
 	},
 	"reports": {
-		"metric_name1": {
-
+		"unicorn": {
+	    "workers": 4,
+	    "memory_used": 4096
 		},
-		"metric_name2": {
-		
-		}
+		"nginx": {
+			"workers": 8,
+	    "memory_used": 8192
+	  }
 	}
 }
