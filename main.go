@@ -8,7 +8,7 @@ import (
 
 func main() {
 	arb_reps := make(map[string]interface{})
-	sys := report.SystemReport{"node1", "127.0.0.1"}
+	sys := report.NewSystemReport()
 	rep := report.Report{sys, arb_reps}
 
 	strrep, _ := json.Marshal(rep)
