@@ -1,16 +1,25 @@
 {
-	"system": {
-		"node_name": "node.name",
-		"ip_address": "192.168.0.1",
-	},
-	"reports": {
-		"unicorn": {
-	    "workers": 4,
-	    "memory_used": 4096
-		},
-		"nginx": {
-			"workers": 8,
-	    "memory_used": 8192
-	  }
-	}
+  "reports": {
+    "unicorn": {
+      "workers": 4,
+      "memory_used": 4096
+    },
+    "nginx": {
+      "workers": 8,
+      "memory_used": 8192
+    }
+  },
+  "system": {
+    "ip_address": "192.168.0.55",
+    "network": {
+      "addresses": [
+        "::1",
+        "127.0.0.1",
+        "fe80::1",
+        "fe80::22c9:d0ff:fe43:9949",
+        "192.168.0.55"
+      ]
+    },
+    "node_name": "Rogue.local"
+  }
 }
