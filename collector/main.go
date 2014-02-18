@@ -1,7 +1,7 @@
 package main
 
 import (
-  "github.com/bwilkins/cartographer/client/report"
+  "github.com/bwilkins/cartographer/collector/report"
   "encoding/json"
   "fmt"
 )
