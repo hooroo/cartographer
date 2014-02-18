@@ -1,0 +1,14 @@
+{
+	"system": {
+		"node_name": "",
+		"ip_address": "",
+	},
+	"reports": {
+		"metric_name1": {
+
+		},
+		"metric_name2": {
+		
+		}
+	}
+}
