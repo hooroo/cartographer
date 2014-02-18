@@ -1,5 +1,5 @@
-require './web_app'
+require './app/web_app'
 
 run Rack::URLMap.new(
-  '/' => WebApp,
+  '/' => Cartographer::WebApp,
 )

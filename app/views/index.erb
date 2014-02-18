@@ -1,0 +1,25 @@
+<%= @reports %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Host</th>
+      <th>Report<th>
+      <th>Status</th>
+      <th>Detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%- @reports.each do |report| %>
+      <tr>
+      </tr>
+    <% end %>
+    <!--
+    <tr class="active">
+    <tr class="success">
+    <tr class="info">
+    <tr class="warning">
+    <tr class="danger">
+    -->
+  </tbody>
+</table>
