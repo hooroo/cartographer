@@ -12,14 +12,10 @@ module Cartographer
     configure :development do
       register Sinatra::Reloader
 
-      APP_FILES.each do |file|
-        also_reload file
-      end
+      APP_FILES.each { |file| p file ; also_reload(file) }
 
       use BetterErrors::Middleware
     end
-
-    # set :views, './app/views'
 
     get '/' do
       @reports = get_reports

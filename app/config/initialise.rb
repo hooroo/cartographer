@@ -1,4 +1,4 @@
-app_path = File.expand_path(File.join('..', '..', 'app'), __FILE__)
+app_path = File.expand_path(File.join('..', '..'), __FILE__)
 
 APP_FILES = Dir[File.expand_path(File.join(app_path, '**', '*.rb'), __FILE__)].sort
 
