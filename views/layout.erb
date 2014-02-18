@@ -4,36 +4,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Cartographer</title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <style>
-    body {
-      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-    }
-  </style>
-
-  <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
   <link rel="stylesheet" href="/css/application.css">
 </head>
 
 <body>
 
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="brand" href="/">Cartographer</a>
-        <div class="nav-collapse collapse">
-          <ul class="nav">
-          </ul>
-        </div>
+        <a class="navbar-brand" href="#">Cartographer</a>
       </div>
     </div>
-  </div>
+  </nav>
 
   <div class="container">
     <%= yield %>
