@@ -1,25 +1,22 @@
-<%= @reports %>
-
 <table class="table">
   <thead>
     <tr>
       <th>Host</th>
-      <th>Report<th>
+      <th>Report</th>
       <th>Status</th>
       <th>Detail</th>
     </tr>
   </thead>
   <tbody>
-    <%- @reports.each do |report| %>
-      <tr>
-      </tr>
+    <%- @nodes.each do |node| %>
+      <%- node.reports.each do |report| %>
+        <tr class="<%= node.css_status %>">
+          <td><%= node.node_name %></td>
+          <td><%= report.identifier %></td>
+          <td><%= report.status %></td>
+          <td><%= report.detail %></td>
+        </tr>
+      <% end %>
     <% end %>
-    <!--
-    <tr class="active">
-    <tr class="success">
-    <tr class="info">
-    <tr class="warning">
-    <tr class="danger">
-    -->
   </tbody>
 </table>
