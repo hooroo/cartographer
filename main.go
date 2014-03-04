@@ -25,8 +25,6 @@ func main() {
   reports := generateReports(*external_reports_dir)
   reports_json, _ := json.Marshal(reports)
 
-  reports_json  = append(reports_json, []byte("\r\n\r\n")... )
-
   if *print_to_stdout {
     fmt.Println(string(reports_json))
   }
