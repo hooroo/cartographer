@@ -21,13 +21,11 @@ func whereami() string {
   return filepath.Join(cwd, where_am_i_dir)
 }
 
-func ExternalReports(folder string) map[string]interface{} {
+func ExternalReports(external_reports_dir string) map[string]interface{} {
   external_reports := make(map[string]interface{})
 
-  if filepath.IsAbs(folder) {
-    external_reports_dir := folder
-  } else {
-    external_reports_dir := filepath.Join(whereami(), folder)
+  if !filepath.IsAbs(external_reports_dir) {
+    external_reports_dir = filepath.Join(whereami(), external_reports_dir)
   }
 
   external_reports_globstr := fmt.Sprintf("%s/*", external_reports_dir)
