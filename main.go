@@ -4,50 +4,26 @@ import (
   "github.com/hooroo/cartographer/report"
   "encoding/json"
   "fmt"
-  "os"
-  "os/exec"
-  "path/filepath"
+  "net/http"
+  "bytes"
 )
 
-func whereami() string {
-  exec_name := os.Args[0]
-  find_me_cmd := exec.Command("which", exec_name)
-  where_am_i, _ := find_me_cmd.Output()
-  where_am_i_dir := filepath.Dir(string(where_am_i))
-  if filepath.IsAbs(where_am_i_dir) {
-    return where_am_i_dir
-  }
-  cwd, _ := os.Getwd()
-
-  return filepath.Join(cwd, where_am_i_dir)
+func generateReports() report.Report {
+  external_reports := report.ExternalReports("run")
+  system_report := report.NewSystemReport()
+  return report.Report{system_report, external_reports}
 }
 
-
-
 func main() {
-  arb_reps := make(map[string]interface{})
+  reports := generateReports()
+  reports_json, _ := json.Marshal(reports)
 
-  plugins_dir := filepath.Join(whereami(), "run")
-  plugins_globstr := fmt.Sprintf("%s/*", plugins_dir)
+  reports_json  = append(reports_json, []byte("\r\n\r\n")... )
 
-  plugins, _ := filepath.Glob(plugins_globstr)
+  fmt.Println(string(reports_json))
+  reader := bytes.NewReader(reports_json)
+  resp, _ := http.Post("http://localhost:5050/", "application/json", reader)
 
-  for _, plugin := range plugins {
-    f, _ := os.Open(plugin)
-    fstat, _ := f.Stat()
-    f.Close()
-    if !fstat.IsDir() && (fstat.Mode() | 0111) != 0 {
-      plugin_name := filepath.Base(plugin)
-      plugin_output, _ := exec.Command(plugin).Output()
-      var plugin_json interface{}
-      json.Unmarshal(plugin_output, &plugin_json)
-      arb_reps[plugin_name] = plugin_json
-    }
-  }
-
-  sys := report.NewSystemReport()
-  rep := report.Report{sys, arb_reps}
-  strrep, _ := json.Marshal(rep)
-
-  fmt.Println(string(strrep))
+  resp.Body.Close()
+  return
 }
