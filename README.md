@@ -16,10 +16,19 @@ Alternatively:
 5. `cd $GOPATH/github.com/bwilkins/cartographer`
 6. `go build`
 
+### Usage
+
+Usage of cartographer:
+-  -external-reports_dir="run": Directory in which to look for external reports (absolute OR relative to where cartographer is located)
+-  -http-report-to="": URL to (optionally) send report to
+-  -print-to-stdout=true: Print output to stdout?
+
+
+
 ### Desired Functionality
 
-- Drop-and-go - can be dropped onto a system and discover information about it.
-- Pluggable - can be extended via plugins/modules
+- √ Drop-and-go - can be dropped onto a system and discover information about it.
+- √ Pluggable - can be extended via plugins/modules
 - Is smart about what it reports on
     - Does not report about a missing web server if the host simply does not run a web service.
     - Only reports database metrics if a database is installed.

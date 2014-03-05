@@ -16,8 +16,8 @@ func generateReports(external_reports_dir string) report.Report {
 }
 
 func main() {
-  var external_reports_dir = flag.String("external-reports_dir", "run", "Directory in which to look for external reports")
-  var http_report_to = flag.String("http-report-to", "", "URL to send report to")
+  var external_reports_dir = flag.String("external-reports_dir", "run", "Directory in which to look for external reports (absolute OR relative to where cartographer is located)")
+  var http_report_to = flag.String("http-report-to", "", "URL to (optionally) send report to")
   var print_to_stdout = flag.Bool("print-to-stdout", true, "Print output to stdout?")
 /*  var daemonise = flag.Bool("daemonise", false, "Process becomes long-running (instead of run-once and exit)")*/
   flag.Parse()
